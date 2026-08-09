@@ -1,0 +1,36 @@
+# WordPress generated files
+wp-content/uploads
+wp-content/cache
+wp-content/upgrade
+wp-content/wflogs
+advanced-cache.php
+
+# Environment and secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Logs and databases
+logs
+*.log
+*.sql
+*.tar.gz
+*.zip
+*.rar
+
+# Dependencies and build artifacts
+node_modules
+__pycache__
+.venv
+dist
+build
+coverage
+out
+.next
+*.tsbuildinfo
+
+# OS and editor metadata
+.DS_Store
+.idea
+.vscode
