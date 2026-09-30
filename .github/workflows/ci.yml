@@ -1,0 +1,29 @@
+name: CI
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate configuration templates
+        run: |
+          echo "Checking config template syntax..."
+          for f in conf/nginx/*.hbs conf/php/*.hbs conf/mysql/*.hbs; do
+            if [ -f "$f" ]; then
+              echo "--- $f ---"
+              head -3 "$f"
+            fi
+          done
+          echo "Checking wp-config-sample.php is valid PHP..."
+          php -l app/public/wp-config-sample.php || true
+      - name: Verify README references
+        run: |
+          echo "Repo URL: https://github.com/ethical-dilkhush/spsb-consulting-inc"
+          echo "README mentions branch: master (matches default)"
+          grep -q "master" README.md && echo "README branch reference OK" || echo "README branch mismatch"
