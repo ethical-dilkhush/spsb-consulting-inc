@@ -18,6 +18,7 @@ This repository preserves the public-facing WordPress application and configurat
 - Admin and site assets are served from the standard WordPress paths under `app/public`.
 - Review exported content and site structure using the included WordPress eXtended RSS archive.
 - Use the configuration templates as a starting point for local or staging environments.
+- The default branch is `master` — all CI and deployment configs target this branch.
 
 ## Repository
 
